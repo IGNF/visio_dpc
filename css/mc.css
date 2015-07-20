@@ -1,0 +1,205 @@
+/*
+ *  Geofabrik Tools
+ *
+ *  mc/mc.css
+ *
+ */
+
+/* PATCH TAILLE ICON et TEXTE */
+ img.small-icon { height: 25px; width: 25px; }
+span#nom_links {font-size: 125% !important;}
+span#customPermalink > a {font-size: 125%;}
+
+td.maps {
+    vertical-align: top;
+    width: 50%;
+    padding: 0px 0px 0px 0px;
+}
+
+form.switch {
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+form.switch select {
+    max-width: 14em;
+}
+
+div.map {
+    border: 0px solid #808080;
+    width: 100%;
+    height: 400px;
+}
+
+div#customMousePosition {
+    position: absolute;
+    bottom: 22px;
+    padding: 6px 8px;
+    right: 8px;
+    font-size: 80%;
+    z-index: 1;
+}
+ 
+div#bottom {
+    position: absolute;
+    bottom: 26px;
+    width: 100%;
+    height: 18px;
+    z-index: 1;
+}
+
+div#map-decoration {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 1;
+}
+
+div#map-decoration span {
+    padding-right: 10px;
+    font-size: small;
+    z-index: 1;
+}
+
+span#noscript { 
+    color: red;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+a.home { text-decoration:none;}
+
+/* td:hover { background-color: #699dad; } */
+div.map:hover { 
+    border: 0px dashed #699dad;
+}
+
+
+span.switch-1 {
+    font-size: small;
+}
+
+span#debug {
+    font-size: small;
+}
+   
+img#locateme-indicator {
+    display:none;
+} 
+
+/* dynamically increase size of input fields */
+table#table_tileserver input { width: 99%; }
+
+/* span#social { display: none } */
+/* IE8 */
+span#social img {
+    border: 0px;
+}
+
+span#social {
+    display:none;
+}
+
+div#tools-help, span#tools-pageload, span#tools-geolocation { padding-top: 3px; }
+span#tools-pageload, span#tools-geolocation { font-size: x-small; } 
+
+div#console {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+a.homelink {
+    font-size: small;
+}
+
+select#sw-2 { display: none }
+span#tools-geolocation { display: none }
+
+.error { color: red; font-size: x-large }
+
+.help { font-size: small; }
+
+.font_active {
+    font-size: 125%;
+    color: red !important;
+}
+/* .font_deactive { font-size: medium; } */
+
+div#footer { 
+  top: 0.0em;
+  font-size: small;
+  text-align: center; 
+}
+
+table { border-spacing: 0px; }
+
+/* postion */
+/*TODO : J'adore pas alors je commente*/
+/*.mouseOut { color: grey; }*/
+/* .mouseIn { }; */
+
+td { padding: 0px; }
+
+
+/*
+ * console.html
+ * 
+ */
+div#tools-right.console { width: 0px; }
+
+div#tools-help.console {
+    position: absolute;
+    right: 90px !important;
+    width: 70px;
+}
+
+
+/* no underlines file links in footer */
+div#tools-copyright a {
+    text-decoration: none;
+    /*MANU : Changement de couleur*/
+    /*color: #699dad;*/
+   color: #77B800;
+}
+
+div#tools-copyright a:hover {
+    text-decoration: none;
+    /*MANU : Changement de couleur*/
+    /*color: #699dad;*/
+   color: #333;
+}
+
+div#tools-help span a.tools-helptrigger span { margin-left: 3px; } /* Help */
+div#tools-help span { top: -0.2em; }
+
+div.dialog-search {
+    padding: 12px;
+    height: 140px;
+    overflow-y: auto;
+    font-size: 100%;
+}
+
+/* search popup */
+div.dialog-search h3 { text-align: center; }
+div.dialog-search form { text-align: center; }
+div.dialog-search input#address-query { width: 20em; font-size: large }
+div.dialog-search input { font-size: large; }
+div.dialog-title.search-title { text-align: center; }
+div#search-results p { margin: 0.6em; }
+  
+input#share-message { width: 32em; font-size: large }
+
+/* display map names on top of a map in full screen mode */ 
+div.mapname {
+    position: absolute;
+    z-index: 1100;
+    text-align: center;
+    top: 5px;
+    left: 0px;
+    right: 0px;
+    font-size: small;
+    color: white; // set by toggleFullScreen()
+    
+    /* disabled on startup */
+    display: none;
+}

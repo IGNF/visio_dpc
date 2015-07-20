@@ -1,0 +1,55 @@
+/*
+ * mobile devices, responsive design
+ * see js/mc.js: mc.responsive.enabled = true
+ */
+@media only screen and (max-height: 690px), (max-width: 690px) {
+    h1 { font-size: 160% !important; }
+    #tools-help > span > a.tools-helptrigger { font-size: 160%; text-align:  center; }
+    #tools-help > span > a.tools-inputtrigger { font-size: 160%; text-align:  center; }
+  
+    /*select { font-size: 140%; }*/
+  
+    /*span#nom_links > a          { font-size: 140%; }*/
+    span#nom_links              { font-size: 140% !important; }
+    span#nom_links > a.pl_small {  display: none; }
+    span#customPermalink > a    { font-size: 140%; }
+  
+    span#social { display: none !important; }
+    span.cmtm   { display: none; }
+    select#sw-1  { font-size: 110%; }
+    span#customMousePosition { display: none !important; }
+  
+    /*a#fullscreen { font-size: 175% !important; }*/
+    
+    span#tools-pageload, span#tools-geolocation { right: 5px; width: 100px; }
+    div#bottom { height: 1.8em !important; bottom: 2.0em !important;}
+    div#tools-copyright { height: 2.0em !important; }
+    div#tools-copyright a.footer-link { font-size: 150%; }
+    .long_footer { display:none; }
+  
+    /* hide scale line and zoombar in first map */
+    .olControlScaleLine, .olControlPanZoomBar { display:none; }
+
+	/* MANU : je trouve ca beaucoup trop gros */
+    /*img.small-icon { height: 40px; width: 40px; }*/
+   img.small-icon { height: 30px; width: 30px; }
+
+	/*MANU : alignement à la sauvage*/
+    /*div#tools-help { width: 310px; right: 365px !important; }*/
+   
+    div#tools-right { width: 310px !important; }
+    
+    div.dialog-search input#address-query { width: 12em; font-size: x-large; }
+    div.dialog-search input { font-size: x-large; }
+    div.dialog-search form { text-align: left; }
+    .jqmWindow { width: 540px !important }
+    div#search-form br { display: none; }
+    div#search-results p { margin: 0.3em; }
+
+    input#share-message { width: 20em; font-size: x-large }
+}
+
+/* hide some text on smaller screens */
+@media only screen and (max-width: 920px) {
+  .long_footer { display:none; }
+}

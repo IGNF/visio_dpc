@@ -1,0 +1,270 @@
+/*
+ *  Geofabrik Tools
+ *
+ *  css/common.css
+ *
+ */
+
+body {
+	/* MANU : on vire le petit effet d'ombrage*/
+    /*background-image: url(../img/bg-top.png);
+    background-position: 0 -64px;
+    background-repeat: repeat-x;*/
+    background-color: #ffffff;
+    font-family: /*Verdana, Helvetica,*/ Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+a {
+    /*color: #699dad;*/
+    color: #77B800;
+}
+
+a:hover {
+	/*MANU : changement de couleur*/
+    /*color: #699dad;*/
+    color: #333;
+}
+
+h2 a {
+  color: #74787B;
+}
+
+.cmtm {
+	color: #333;
+	font-size:95%;
+}
+
+/* ================================================== */
+
+img#gftop {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+div#gfmain {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+div#gfmain p {
+    margin-left: 10px;
+}
+
+/* ================================================== */
+
+div#tools-top {
+    position: absolute;
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    /* for ie */
+    width: expression((document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth));
+    z-index: 0;
+    /*background-color: #ffffff;
+    border-bottom: 2px solid #8bc;*/
+   /* MANU : Ajout d'un bout de fond ign*/
+   background-image: url(../img/fond_gris.png);
+   /*background-repeat:no-repeat;
+   background-position:center center;*/
+
+}
+
+div#tools-right {
+    position: absolute;
+    right: 0px;
+    width: 345px;
+    height: 30px;
+    padding: 6px 40px;
+    z-index: 1;
+    background-image: url(../img/bg-right.gif);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+div#tools-right img {
+    border-style: none;
+}
+
+select#tools-switcher {
+    position: absolute;
+    padding: 0;
+    right: 10px;
+    top: 5px;
+    z-index: 3;
+}
+
+/* ================================================== */
+
+div#tools-titlebar {
+    margin: 10px 0 0 0;
+    padding: 4px 8px 0;
+    z-index: 0;
+}
+
+#tools-titlebar h1, div#gfmain h1 {
+    margin: 4px 0px 8px 0px;
+    padding: 0;
+    font-size: 130%;
+    color: #909090;
+    z-index: 0;
+}
+
+div#tools-titlebar h2 {
+    margin: 4px 0px 8px 0px;
+    padding: 0;
+    font-size: 110%;
+    color: #909090;
+    z-index: 0;
+}
+
+div#tools-console {
+    color: #909090;
+    z-index: 0;
+}
+
+/* ================================================== */
+
+div#tools-help {
+    /*position: absolute;
+    right: 380px;
+    width: 220px;*/
+   
+   	/*MANU : Grosse tentative bien sauvage d'alignement*/
+    float:right;
+}
+
+span#tools-pageload, span#tools-geolocation {
+    position: absolute;
+    right: 5px;
+    width: 100px;
+    text-decoration: none;
+    border-style: none;
+}
+
+div#tools-help a {
+    text-decoration: none;
+}
+
+div#tools-help img {
+    border-style: none;
+}
+
+div#tools-help span {
+    position: relative;
+    top: -0px;
+}
+
+/* ================================================== */
+
+.jqmWindow {
+    display: none;
+    position: fixed;
+    top: 15px;
+    width: 780px;
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid black;
+}
+
+* html .jqmWindow {
+     position: absolute;
+     top: expression((document.documentElement.scrollTop || document.body.scrollTop) + Math.round(17 * (document.documentElement.offsetHeight || document.body.clientHeight) / 100) + 'px');
+}
+
+.jqmOverlay { background-color: #000; }
+
+div.dialog-title {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 2px 6px;
+    font-weight: bold;
+}
+
+div.dialog-title img {
+    position: absolute;
+    right: 2px;
+}
+
+div.dialog-msg {
+    padding: 12px;
+    height: 240px;
+    overflow-y: auto;
+    font-size: 100%;
+}
+
+div.dialog-msg-small {
+    padding: 12px;
+    overflow-y: auto;
+    font-size: 100%;
+}
+
+div.dialog-msg td {
+    vertical-align: top;
+    padding: 2px 0px;
+    border-bottom: 1px dotted #ffffff;
+    font-size: small;
+}
+
+/* ================================================== */
+
+div#tools-bottom {
+    position: absolute;
+    bottom: 22px;
+    width: 100%;
+    height: 20px;
+    background-image: url(../img/bg-bottom.png);
+    background-position: 0 -6px;
+    background-repeat: repeat-x;
+}
+
+div#tools-copyright {
+    position: absolute;
+    bottom: 0px;
+    height: 20px;
+    background-color: #ffffff;
+    color: #404040;
+    width: 100%;
+    padding: 2px 0;
+    font-size: 80%;
+    border-top: 1px solid #74787B;
+    text-align: center;
+}
+
+div#tools-copyright a {
+    color: #404040;
+    text-decoration: underline;
+}
+
+a { text-decoration: none; }
+a:hover {
+    text-decoration: underline;
+}
+
+div#tools-copyright-rel {
+    background-color: #ffffff;
+    color: #404040;
+    width: 100%;
+    padding: 2px 0;
+    font-size: 80%;
+    border-top: 2px solid #8bc;
+    text-align: center;
+    clear: both;
+}
+
+div#tools-copyright-rel a {
+    color: #404040;
+}
+
+
+/* ================================================== */
+
+iframe#josmiframe {
+    display: none;
+}
