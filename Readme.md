@@ -1,4 +1,4 @@
-# W*S map comparison 
+# WMTS/WMS map comparison web interface for IGN needs
 
 Demo page : http://demos.ign.fr/visio_dpc/
 
