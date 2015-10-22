@@ -1,0 +1,486 @@
+body
+{
+    overflow: auto;
+}
+a:hover
+{
+    text-decoration: none;
+}
+/*
+    Dialogues
+*/
+
+.messageBox
+{
+    color: #333333;
+    background-color: #F7F8F4;
+    position: fixed;
+}
+
+.form_bug
+{
+    overflow: auto;
+}
+
+h1
+{
+    text-align: center;
+    color: #256285;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.messageBox h1
+{
+    color: #256285;
+    font-family: "OpenSans";
+    font-size: 36pt;
+}
+
+.messageBox h3
+{
+    color: #256285;
+    font-family: "OpenSans";
+    font-size: 30pt;
+    font-weight: 900;
+}
+
+.messageBox p
+{
+    font-family: "Lucida Sans";
+    font-size: 16pt;
+}
+
+.messageBox p.info
+{
+    font-size: 10pt;
+}
+
+#suppression
+{
+    text-align: center;
+    font-size: 16px;
+}
+
+#suppression button
+{
+    width: 45px;
+    height: 30px;
+    line-height: 30px;
+    font-family: 'Trebuchet MS';
+}
+
+/*
+Bandeau
+*/
+
+.col-md-6
+{
+    background-color: #71777a;
+}
+
+#header_sup {
+    background-color: #f7f8f4;
+    display: block;
+    height: 40px;
+    width: 100%;
+}
+
+#header_right 
+{ 
+    /*font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif;*/
+    font-family: "Open Sans";
+    font-weight: bold;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.grid_3
+{
+    min-width: 210px;
+    width: 10%;
+    display: inline;
+    float: left;
+}
+.grid_9
+{
+    width: 30%;
+    display: inline;
+    float: left;
+}
+
+.grid_9 a
+{
+    margin-left: -15px;
+}
+
+#header_right
+{
+    width: 28%;
+    height: 40px;
+    line-height: 40px;
+    min-width: 510px;
+    font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif;
+    font-size: 14px;
+    text-align: center;
+    color: #71777a;
+}
+
+ul ul {
+    display: none;
+} 
+
+#header_right li 
+{
+    list-style-type: none;
+    width: 220px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+
+ul .niveau1
+{
+    padding: 0;
+    display: none;
+}
+
+#header_right ul.niveau1 li:hover
+{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#header_right li:hover ul.niveau2 {
+  display: block;
+  border-left: 1px solid #71777a;
+  border-bottom: 1px solid #71777a;
+   float: right; 
+   position: relative; 
+  position: absolute;
+  right: 2px;
+  z-index: 2000;
+  background-color: #f7f8f4;
+}
+
+#header_right li ul.niveau2 li
+{
+    text-align: center;
+    background-color: #f7f8f4;
+}
+
+#header_right li ul.niveau2 li:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(37, 98, 133);
+}
+
+#header_right #user_account
+{
+    float: left;
+}
+
+#header_right #user_account a
+{
+    color: #71777a;
+    font-size: 14px;
+}
+
+#header_right #user_account a i.fa-2x
+{
+    font-size: 1.8em;
+}
+
+#header_right #mentions
+{
+    float: right;
+    border-left: 1px solid #71777a;
+}
+
+#mon_compte i:hover
+{
+    cursor: pointer;
+    color: #256285;
+}
+
+.connect
+{
+    display:block;
+    font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif;
+    font-size: 14px; 
+    color: #71777a; 
+    line-height: 40px;
+    margin-right: 20px;
+}
+
+.connect i, .unconnect i
+{
+    margin-right: 5px;
+}
+
+.unconnect i
+{
+    color: #256285;
+}
+
+.unconnect i:hover
+{
+    cursor: pointer;
+    color: #256285;
+}
+
+#user_account div.connect, #user_account div.unconnect
+{
+    margin-left: 22px;
+}
+
+#user_account.connected .connect
+{
+    display:none;
+}
+
+#header_right #user_account div.unconnect
+{   display:none;
+
+}
+#header_right #user_account.connected div.unconnect
+{   
+    display:block;
+    font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif;
+    font-size: 14px;
+    color: #71777a; 
+    line-height: 40px;
+    margin-right: 20px;
+}
+
+#user_account #connec_compte
+{
+    display: inline;
+    padding-right: 10px;
+    border-right: 1px solid #71777a;
+}
+
+#user_account #affiche_compte
+{
+    display: inline;
+    padding-right: 10px;
+    border-right: 1px solid #71777a; 
+}
+
+#user_account #affiche_compte a
+{
+    text-decoration: none;
+}
+
+#user_account #deconnec_compte
+{
+    display: inline;  
+    padding-left: 12px;
+    text-transform: none;
+}
+
+#user_account i
+{
+    color: #256285;
+}
+
+#user_account #crea_compte
+{
+    display: inline;
+    padding-left: 4px;
+    text-transform: none ;
+}
+
+#user_account #connec_compte a, #user_account #deconnec_compte a, #user_account #affiche_compte a, #user_account #crea_compte a
+{
+    padding: 0 4px 0 4px;
+}
+
+#user_account #connec_compte a:hover, #user_account #deconnec_compte:hover, #user_account #affiche_compte a:hover, #user_account #crea_compte a:hover
+{
+    cursor: pointer; 
+    color: #256285;
+}
+
+#header_right ul{
+    margin: 0px;
+    padding: 0;
+}
+
+.dropdown-menu
+{
+    top: 38px;
+}
+
+.dropdown-menu li
+{
+    line-height: 40px;
+    font-size: 14px;
+    border-bottom: solid 1px #aaa;
+    height: 40px;
+    padding-left: 30px;
+}
+
+#ign-all .dropdown-menu li:hover, .dropdown-menu li a:hover
+{
+    background-color: #666;
+}
+
+.fa-angle-left:before {
+    position: relative;
+    top: 4px;
+    left: 5px;
+}
+
+#header_center .fa-angle-left:before
+{
+     left: -20px;
+}
+.fa-angle-down:before {
+    position: relative;
+    top: 4px;
+    left: 5px;
+    margin-right: 30px;
+}
+
+#header-name img
+{
+    margin-right: 20px;
+}
+
+#rentrer-maison
+{
+    display: inline;
+    position: absolute;
+    cursor: pointer;
+}
+
+#titre_accueil
+{
+    text-transform: uppercase;
+    width: 900px;
+    padding-left: 160px;
+    color: #71777a;
+}
+
+#titre_accueil span
+{
+    font-size: 30px;
+}
+
+#mini_titre
+{
+    font-size: 28px;
+    margin-left: -20px;
+}
+
+.doNotDisplay
+{
+    display: none;
+}
+
+#body-container table th .fa-5x
+{
+    font-size: 6em;
+}
+
+#body-container table th i
+{
+    margin-bottom: 15px;
+}
+
+#body-container #table_exemple
+{
+    height: 150px;
+}
+
+#table_exemple td
+{
+    width: 50%
+}
+
+.start_button2
+{
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+#carte_exemple
+{
+    text-align: center;
+}
+
+#carte_exemple table
+{
+    margin-left: 40px;
+    text-align: left;
+}
+
+iframe
+{
+    width: 100%;
+}
+
+#survol_page_perso, #survol_connexion
+{
+    padding: 0 3px 0 3px;
+    border: 1px solid black;
+    display: none;
+    font-size: 8px;
+    height: 15px;
+    line-height: 15px;
+    position: absolute;
+    top: 43px;
+}
+
+#survol_page_perso.visible, #survol_connexion.visible
+{
+    display: block;
+}
+
+#survol_page_perso.invisible, #survol_connexion.invivisble
+{
+    display: none;
+}
+
+#whiteBckg
+{
+    background-color: white;
+}
+
+.nous_ecrire
+{
+    cursor: pointer;
+}
+
+#footer-main
+{
+    padding-left: 0;
+    padding-top: 15px;
+}
+
+#footer-main p
+{
+    font-size: 14px;
+}
+
+/*@media screen and (max-width:980px) 
+{
+    #carte_exemple iframe
+    {
+        width: 640px;
+    }
+}
+
+@media screen and (max-width:660px) 
+{
+    #carte_exemple iframe
+    {
+        width: 320px;
+    }
+}*/

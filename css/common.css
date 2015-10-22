@@ -161,6 +161,11 @@ div#tools-help span {
     top: -0px;
 }
 
+.dialog-close {
+	padding: 2px;
+	cursor: pointer;
+}
+
 /* ================================================== */
 
 .jqmWindow {
@@ -170,7 +175,7 @@ div#tools-help span {
     width: 780px;
     background-color: #EEE;
     color: #333;
-    border: 1px solid black;
+    border: 1px solid #666666;
 }
 
 * html .jqmWindow {
@@ -180,11 +185,15 @@ div#tools-help span {
 
 .jqmOverlay { background-color: #000; }
 
+div.dialog-title, div.dialog-msg {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
 div.dialog-title {
-    background-color: #000000;
+	text-transform: uppercase;
+    background-color: #71777a;
     color: #ffffff;
     padding: 2px 6px;
-    font-weight: bold;
 }
 
 div.dialog-title img {
@@ -197,6 +206,28 @@ div.dialog-msg {
     height: 240px;
     overflow-y: auto;
     font-size: 100%;
+}
+
+span.all_credits {
+	font-size: 13px;
+}
+
+div.dialog-msg table {
+	border-spacing: 10px;
+	border-collapse: separate;
+}
+
+div.dialog-msg table td {
+	vertical-align: middle;
+}
+
+div.dialog-msg a {
+	color: #666666;
+	font-weight: bold;
+}
+
+div.dialog-msg a:hover {
+	color: #256285;
 }
 
 div.dialog-msg-small {
@@ -262,6 +293,20 @@ div#tools-copyright-rel a {
     color: #404040;
 }
 
+span.kbd {
+	border-radius: 4px;
+    border-style: outset;
+    border: 1px solid #aaa;
+    background: #fafafa;
+    padding: 3px;
+    vertical-align: baseline;
+    line-height: 1.8em;
+    white-space: nowrap;
+}
+
+span#url_share {
+	font-size: 13px;
+}
 
 /* ================================================== */
 

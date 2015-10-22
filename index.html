@@ -1,125 +1,110 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-	<head>
-		<title>Visionneuse Carto</title>
-
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="copyright" content="Copyright (c) 2012-2015 Emmanuel SÃ©guin &amp; BBBike.org &amp; Geofabrik GmbH" />
-
-		<link rel="stylesheet" type="text/css" href="css/common.css" />
-		<link rel="stylesheet" type="text/css" href="css/OpenLayers/style.css" />
-		<link rel="stylesheet" type="text/css" href="css/mc.css" />
-		<link class="mobilecss" rel="stylesheet" type="text/css" href="css/mobile.css" />
-	</head>
-
-	<body>
-
-		<!-- A virer Ã  terme -->
-		<div id="tools-top"></div>
-
-		<!-- Titre et outils du haut de la page -->
-		<div id="tools-titlebar">
-			<span id="tools-pageload"><img src="img/indicator.gif" alt="" title="Loading JavaScript libraries" /> Loading&nbsp;JS </span>
-			<span id="tools-geolocation"><img src="img/indicator.gif" alt="" title="geolocation" /> Geo&nbsp;Location</span>
-			<div id="tools-help">
-				<span id="tools-locate-me"> <img id="locateme-indicator" src="img/indicator.gif" width="16" height="16" alt="loading" /> </span>
-				<a title="OÃ¹ suis je?" href="javascript:locateMe()"> <img class="small-icon" src="img/icon_2.png" width="25" height="23" alt="loading" /> </a>
-				<span> <a id="tools-searchtrigger" title="Recherche par adresse" class="tools-inputtrigger" href="search.html"><img class="small-icon" src="img/url_small.png" alt="Search" width="20" height="20"/> </a> </span>		
-				<!--span title="Aide"> <a id="tools-helptrigger" class="tools-helptrigger" href="help.html"> <img class="small-icon" src="img/help.gif" alt="" width="22" height="22"/> <span>Help</span> </a> </span-->
-			</div>
-			<h2 id="tools-title"><a class="home" href="./">Offre Cartographique IGN</a></h2>
-			<span id="noscript">
-				<noscript>
-					pas de javascript, pas de chocolat !
-				</noscript> </span>
-		</div>
-
-		<div class="jqmWindow" id="tools-helpwin">
-			Please wait... <img src="img/indicator.gif" alt="loading" />
-		</div>
-		<div class="jqmWindow" id="tools-inputwin"></div>
-
-		<!-- LES CARTES -->
-		<div id="table">
-			<table width="100%">
-				<!-- La premiÃ¨re ligne -->
-				<tr id="tr0">
-					<td class="maps" id="column0">
-					<form action="" class="switch" id="head0">
-						<div>
-							Choose map type:
-							<select id="sw0" name="sw0">
-								<option>none</option>
-							</select>
-						</div>
-					</form><div class="map" id="map0"></div></td>
-
-					<td class="maps" id="column1">
-					<form action="" class="switch" id="head1">
-						<div>
-							Choose map type:
-							<select id="sw1" name="sw1">
-								<option>none</option>
-							</select>
-						</div>
-					</form><div class="map" id="map1"></div></td>
-				</tr>
-				<!-- Des lignes d'avance -->
-				<tr id="tr1">
-					<td></td>
-				</tr>
-				<tr id="tr2">
-					<td></td>
-				</tr>
-				<tr id="tr3">
-					<td></td>
-				</tr>
-				<tr id="tr4">
-					<td></td>
-				</tr>
-			</table>
-		</div>
-
-		<!-- Les outils de bas de page -->
-		<div id="bottom">
-			<span id="debug"></span>
-			<div id="map-decoration">
-				<span id="customMousePosition"></span>
-				<span id="customZoomLevel">zoom=</span>
-				<span id="NumberOfMaps"></span>
-				<span id="customPermalink"> <a style="display:none" href="" id="permalink" title="set permanent link">permalink</a> <a id="tools-sharetrigger" title="share link" class="tools-inputtrigger" href="share.html">Partager</a> </span>
-			</div>
-		</div>
-
-		<!-- Les copyrights et autres options -->
-		<div id="tools-copyright">
-			<span id="social"> <a href="http://twitter.com/BBBikeWorld" target="_new"><img class="logo" width="16" height="16" src="img/social/twitter-t.png" alt="" title="Follow us on twitter.com/BBBikeWorld" /></a> <a href="http://www.bbbike.org/feed/bbbike-world.xml"><img class="logo" width="14" height="14" title="What's new on BBBike.org" src="img/social/rss-icon.png" alt="" /></a> &nbsp; </span>
-			<span> &copy; 2015 <a href="https://fr.linkedin.com/in/emmanuelseguin" target="_blank">Emmanuel SÃ©guin</a> &amp; <a href="http://bbbike.org/" target="_blank">BBBike<span class="long_footer">.org</span></a> &amp; <a href="http://www.geofabrik.de/" target="_blank">Geofabrik<span class="long_footer"> GmbH</span></a> 
-			- <a class="footer-link tools-helptrigger" href="help.html">Aide</a> 
-			- <a class="footer-link" onclick="toggleFullScreen();" id="fullscreen" title="toggle fullscreen mode">Plein Ã©cran</a> </span>
-		</div>
-
-		<!-- fetch JavaScript libs at the end of the page -->
-		<!-- jquery at all -->
-		<script type="text/javascript" src="js/jquery/jquery-1.8.3.min.js"></script>
-		<script type="text/javascript" src="js/jquery/jquery.cookie.js"></script>
-		<script type="text/javascript" src="js/jquery/jquery.iecors.js"></script>
-		<script type="text/javascript" src="js/jquery/jquery-ui-1.9.1.custom.min.js"></script>
-		<script type="text/javascript" src="js/jqModal/jqModal-1.1.0.js"></script>
-		<!-- OpenLayers -->
-		<script type="text/javascript" src="js/OpenLayers/2.12/OpenLayers.min.js"></script>
-		<script type="text/javascript" src="js/OpenLayers/2.12/OpenStreetMap.js"></script>
-		<script type="text/javascript" src="js/OpenLayers/2.12/Here.js"></script>
-		<!-- XXX: Google? -->
-		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3.9&amp;sensor=false&amp;language=en&amp;libraries=weather,panoramio"></script>
-		<!-- Map Compare libs -->
-		<script type="text/javascript" src="js/mc.js"></script>
-		<!-- local config -->
-		<script type="text/javascript">
-			mc.debug = 1;
-		</script>
-
-	</body>
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <link rel="shortcut icon" href="/favicon2.ico" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Visionneuses IGN</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+        <link href="css/font-awesome.min.css" rel="stylesheet" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/charte.css" />
+        <link rel="stylesheet" type="text/css" href="css/body.css" />
+        <link rel="stylesheet" media="screen" href="css/wapp.css" />
+        <link rel="stylesheet" type="text/css" href="css/pageAccueil.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.tv.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/charteie.css" />
+        <script type="text/javascript" src="js/jquery/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/accueil.js"></script>
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1">
+    </head>
+    <body>
+        <div id="supranavigation" style="background-image: url(img/supranavigation-background.png)">
+            <div class="container">
+                <div id="supranavig-left" class="col-md-5">
+                    <div id="ign-portal" class="col-md-5">
+                        <a href="http://www.ign.fr" target=_blank>LE PORTAIL IGN</a>
+                    </div>
+                    <div id="ign-all" class="col-md-7">
+                        <li class="dropdown">
+                            <a data-target="#" class="dropdown-toggle" data-toggle="dropdown">TOUS LES SITES IGN <i class="fa fa-angle-down fa-2x"></i></a>
+                            <ul class="dropdown-menu" style="left:auto;">
+                                <div class="col-md-6">
+                                        <li><a target="_blank" href="http://api.ign.fr" class="lien-droite">API&nbsp;Géoportail </a></li>
+                                        <li><a target="_blank" href="http://espaceloisirs.ign.fr/boutique" class="lien-droite">Boutique&nbsp;Loisir </a></li>
+                                        <li><a target="_blank" href="http://education.ign.fr" class="lien-droite">Éducation </a></li>
+                                        <li><a target="_blank" href="http://www.edugeo.fr/" class="lien-droite">Édugéo </a></li>
+                                        <li><a target="_blank" href="http://www.ensg.eu/" class="lien-droite">ENSG&nbsp;/&nbsp;Formation </a></li>
+                                        <li><a target="_blank" href="http://espaceloisirs.ign.fr/fr/" class="lien-droite">Espace&nbsp;loisirs </a></li>
+                                        <li><a target="_blank" href="http://professionnels.ign.fr/" class="lien-droite">Espace&nbsp;professionnel </a></li>
+                                        <li><a target="_blank" href="http://espace-revendeurs.ign.fr/" class="lien-droite">Espace&nbsp;revendeurs </a></li>
+                                </div>
+                                <div class="col-md-6">
+                                        <li><a target="_blank" href="http://geodesie.ign.fr/" class="lien-droite">Géodésie </a></li>
+                                        <li><a target="_blank" href="http://www.geoportail.gouv.fr/" class="lien-droite">Géoportail </a></li>
+                                        <li><a target="_blank" href="http://ignfab.ign.fr/" class="lien-droite">IGNfab </a></li>
+                                        <li><a target="_blank" href="http://www.ign.fr/institut/" class="lien-droite">Institut </a></li>
+                                        <li><a target="_blank" href="http://inventaire-forestier.ign.fr" class="lien-droite">Inventaire&nbsp;forestier </a></li>
+                                        <li><a target="_blank" href="http://logiciels.ign.fr" class="lien-droite">Portail&nbsp;de&nbsp;logiciels&nbsp;gratuits </a></li>
+                                        <li><a target="_blank" href="http://recherche.ign.fr/" class="lien-droite">Recherche </a></li>
+                                        <li><a target="_blank" href="http://www.ign.fr/webtv" class="lien-droite">Web&nbsp;TV&nbsp;IGN </a></li>
+                                </div>
+                            </ul>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="header"  style="background: #f0efeb url(img/header-background2.jpg) repeat scroll center center;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8" id="header-name">
+                        <img alt="logo-ign" src="img/IGN_log_RVB_72.jpg" align="left"/>
+                        <div id="titre_accueil">
+                            &nbsp;<span id='mini_titre'>Mes</span><br/> <!-- Ligne à mettre si le titre est sur une ligne -->
+                            Visionneuses
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br /><h1 class='upcase'>Visualiser les produits IGN</h1>
+        <div id="body-container">
+            <div class="container">
+                <table>
+                    <th class="tiers" valign="top">
+                        <i class="fa fa-map fa-5x" title="Lancer la visionneuse de cartes." onclick="visio.html"></i>
+                        <p class='blue upcase'>Cartes</p>
+                        <p class="grey">SCAN IGN, SCAN EXPRESS, PLAN IGN, FRANCERASTER&copy;, etc.</p><br />
+                        <div class="start_button2">
+                            <p class='upcase'><a href="visio.html" title="Lancer la visionneuse de cartes.">Lancer</a></p>
+                        </div>
+                    </th>
+                    <th>
+                        <img alt="limite21" src="img/limite2.jpg" />
+                    </th>
+                    <th class="tiers" valign="top">
+                        <i class="fa fa-plane fa-5x"></i>
+                        <p class='blue upcase'>Orthoimages</p>
+                        <p class="grey">BD ORTHO&copy;, BD ORTHO&copy; HISTORIQUE, ORTHO SATELLITE-PLÉIADES</p>
+                    </th>
+                    <th>
+                        <img alt="limite21" src="img/limite2.jpg" />
+                    </th>
+                    <th class="tiers" valign="top">
+                        <i class="fa fa-share fa-5x"></i>
+                        <p class='blue upcase'>À venir...</p>
+                    </th>
+                </table>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="container vertical-center" >
+                <div class="col-md-8" id="footer-main">
+                    <p><img src="img/IGN_log_Reserve_Gris_RVB.png"> <img src="img/IGN-info-gdr-nature.png" alt="L'information gandeur nature"></p>
+                    <p>L'IGN a pour vocation de décrire la surface du territoire national et l'occupation de son sol, d'élaborer et de mettre à jour l'inventaire permanent des ressources forestières nationales.</p>
+                    <p>&copy; IGN - 2015</p>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
 </html>
-

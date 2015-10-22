@@ -22,7 +22,7 @@
     /*a#fullscreen { font-size: 175% !important; }*/
     
     span#tools-pageload, span#tools-geolocation { right: 5px; width: 100px; }
-    div#bottom { height: 1.8em !important; bottom: 2.0em !important;}
+    div#bottom { height: 12px !important; bottom: 0 !important; margin-top: 12px;}
     div#tools-copyright { height: 2.0em !important; }
     div#tools-copyright a.footer-link { font-size: 150%; }
     .long_footer { display:none; }
