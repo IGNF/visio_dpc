@@ -1076,7 +1076,7 @@ function initLayerTypes() {
             layer:"GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN50.1950",
             matrixSet:"PM",
             format:"image/jpeg",
-            style:"default",
+            style:"normal",
         });
     }),
     new LayerType('etatmajor40', 'SCAN EM® 40K (Carte de l\'état-major 1820-1866)', function() {
@@ -1086,7 +1086,7 @@ function initLayerTypes() {
             layer:"GEOGRAPHICALGRIDSYSTEMS.ETATMAJOR40",
             matrixSet:"PM",
             format:"image/jpeg",
-            style:"default",
+            style:"normal",
         });
     }),
 
