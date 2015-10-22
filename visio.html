@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>Visionneuse Carto</title>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="copyright" content="Copyright (c) 2012-2015 Emmanuel Séguin &amp; BBBike.org &amp; Geofabrik GmbH" />
+
+        <link rel="stylesheet" type="text/css" href="css/common.css" />
+        <link rel="stylesheet" type="text/css" href="css/OpenLayers/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/mc.css" />
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+        <link class="mobilecss" rel="stylesheet" type="text/css" href="css/mobile.css" />
+    </head>
+
+    <body>
+        <!-- Titre et outils du haut de la page -->
+        <div id="tools-titlebar">
+            <div id="left_navigation_pane">
+                <a href="http://www.ign.fr/" target="_blank">Le portail IGN</a>
+            </div>
+            <div id="right_navigation_pane">
+                <div id="back_to_index">
+                    <a href="./" title="Retour aux produits IGN."><span id="back_icon"></span>Mes visionneuses</a>
+                </div>
+                <div id="legal_notices">
+                    <a href="https://mesadresses.ign.fr/cgu" title="Consulter les mentions légales." target="_blank">Mentions légales</a>
+                </div>
+            </div>
+            <span id="noscript">
+                <noscript>
+                    pas de javascript, pas de chocolat !
+                </noscript>
+            </span>
+        </div>
+        <div class="jqmWindow" id="tools-helpwin">
+            Please wait... <img src="img/indicator.gif" alt="loading" />
+        </div>
+        <div class="jqmWindow" id="tools-inputwin"></div>
+        <!-- LES CARTES -->
+        <div id="maps_container">
+            <table>
+                <!-- La première ligne -->
+                <tr id="tr0">
+                    <td class="maps" id="column0">
+                    <form action="" class="switch" id="head0">
+                        <div>
+                            Choose map type:
+                            <select id="sw0" name="sw0">
+                                <option>none</option>
+                            </select>
+                        </div>
+                    </form><div class="map" id="map0"></div></td>
+
+                    <td class="maps" id="column1">
+                    <form action="" class="switch" id="head1">
+                        <div>
+                            Choose map type:
+                            <select id="sw1" name="sw1">
+                                <option>none</option>
+                            </select>
+                        </div>
+                    </form><div class="map" id="map1"></div></td>
+                </tr>
+                <!-- Des lignes d'avance -->
+                <tr id="tr1">
+                    <td></td>
+                </tr>
+                <tr id="tr2">
+                    <td></td>
+                </tr>
+                <tr id="tr3">
+                    <td></td>
+                </tr>
+                <tr id="tr4">
+                    <td></td>
+                </tr>
+            </table>
+            <div id="vertical_menu">
+                <a id="where_am_i" href="javascript:locateMe()" title="Où suis-je ?"></a><hr />
+                <a id="look_for_address" class="tools-inputtrigger" href="search.html" title="Rechercher par adresse."></a><hr />
+                <a id="share_context" class="tools-inputtrigger" href="share.html" title="Partager le contexte de visualisation courant."></a><hr />
+                <a id="help_box" class="tools-helptrigger" href="help.html" title="Aide."></a>
+            </div>
+            <span id="fixed_info_icon">i</span>
+            <div id="hidden_link">
+                <a href="http://www.ign.fr/" target="_blank"><img id="fixed_ign_logo" src="img/IGN_log_RVB_72.jpg" /></a>
+                <span id="fixed_toggle_icon">»</span>
+            </div>
+        </div>
+        <!-- Les outils de bas de page -->
+        <div id="bottom">
+            <div id="map-decoration">
+                <span id="customMousePosition"></span>
+                <span id="customZoomLevel">zoom=</span>
+                <span id="NumberOfMaps"></span>
+                <span id="customPermalink"><a style="display:none" href="" id="permalink" title="set permanent link">permalink</a></span>
+            </div>
+        </div>
+
+        <!-- fetch JavaScript libs at the end of the page -->
+        <!-- jquery at all -->
+        <script type="text/javascript" src="js/jquery/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery/jquery.cookie.js"></script>
+        <script type="text/javascript" src="js/jquery/jquery.iecors.js"></script>
+        <script type="text/javascript" src="js/jquery/jquery-ui-1.9.1.custom.min.js"></script>
+        <script type="text/javascript" src="js/jqModal/jqModal-1.1.0.js"></script>
+        <!-- OpenLayers -->
+        <script type="text/javascript" src="js/OpenLayers/2.12/OpenLayers.min.js"></script>
+        <script type="text/javascript" src="js/OpenLayers/2.12/OpenStreetMap.js"></script>
+        <script type="text/javascript" src="js/OpenLayers/2.12/Here.js"></script>
+        <!-- XXX: Google? -->
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3.9&amp;sensor=false&amp;language=en&amp;libraries=weather,panoramio"></script>
+        <!-- Map Compare libs -->
+        <script type="text/javascript" src="js/mc.js"></script>
+        <!-- local config -->
+        <script type="text/javascript">
+            mc.debug = 1;
+        </script>
+    </body>
+</html>

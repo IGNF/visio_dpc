@@ -1,0 +1,118 @@
+#body-container h1
+{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#body-container table
+{
+    width: 100%;
+    height: 250px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#body-container table th
+{
+    width: 0.5%;
+    text-align: center;   
+}
+
+#body-container table th.tiers
+{
+    text-align: center;
+    width: 33%;
+}
+
+#body-container table th, #body-container table th i
+{
+    margin-bottom: 50px;
+}
+
+#body-container .fa
+{
+    color: #71777A;
+}
+
+#body-container p
+{
+    margin-bottom: 5px;
+}
+
+#body-container p.blue
+{
+    color: #256285;
+}
+
+#body-container p.grey
+{
+    font-size: 12pt;
+    color: #71777A;
+    margin-top: 20px;
+}
+
+#body-container div.start_button2
+{
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+#body-container div.start_button2 p
+{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#body-container div.start_button2 p a {
+    background: #256285;
+    font-family: "Open Sans";
+    color: white;
+    font-size: 12pt;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    width: 220px;
+    text-align: center;
+}
+
+#carte_exemple
+{
+    margin-bottom: 50px;
+}
+
+#footer-main
+{
+    border-right: 0;
+}
+
+#footer-main.col-md-8
+{
+    width: 80%;
+}
+
+
+.upcase
+{
+    text-transform: uppercase;
+}
+
+#body-container #table_exemple th
+{
+    text-align: left;
+}
+
+#table_avantages tr
+{
+    vertical-align: top;
+}
+
+#body-container #table_avantages .big
+{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#h_lim
+{
+    text-align: center;
+}

@@ -480,8 +480,8 @@ function initMapCompare() {
 
         _map.addControl(new OpenLayers.Control.Navigation());
         _map.addControl(new OpenLayers.Control.MousePosition({
-            prefix: "lon,lat: ",
-            separator: ",",
+            // prefix: "longitude, latitude : ",
+            separator: ", ",
             div: $('#customMousePosition').get(0)
         }));
  
@@ -489,7 +489,7 @@ function initMapCompare() {
         // controls for first map top left
         if (n == 0) {
         	//TODO: ZOOMBAR A DESACTIVER OU NON
-            _map.addControl(new OpenLayers.Control.PanZoomBar());
+            _map.addControl(new OpenLayers.Control.Zoom());
             _map.addControl(new OpenLayers.Control.ScaleLine({
                 geodesic: true
             }));
@@ -740,7 +740,7 @@ function initKeyPress() {
             break
         case 191:
             // '/' (alias '?')
-            $("#tools-helptrigger").trigger({
+            $("#help_box").trigger({
                 type: 'click',
                 which: 191
             });
@@ -748,7 +748,7 @@ function initKeyPress() {
             break
         case 83:
             // 's'
-            $("#tools-searchtrigger").trigger({
+            $("#look_for_address").trigger({
                 type: 'click',
                 which: 83
             });
@@ -923,7 +923,7 @@ function initToolserver() {
  * Beaucoup de defs commentés
  */
 function initLayerTypes() {
-    var BingApiKey = "AqTGBsziZHIJYYxgivLBf0hVdrAk9mWO5cQcb8Yux8sW5M8c8opEC2lZqKR1ZZXf";
+    var BingApiKey = "AnlZwa5p0zgN6mSGFEULXVJgqmUsl8K8GdC_P7MBTVUQSuDY4LR-szxGn-SdpztI";
 
     var YandexBounds = state.YandexBounds;
     var proj4326 = state.proj4326;
@@ -941,45 +941,78 @@ function initLayerTypes() {
 
     state.layertypes = [
 
-    new LayerType('toner-retina', 'OSM Toner Retina', function () {
-        return new OpenLayers.Layer.OSM('OSM Toner', switch_url("http://{switch:a,b}.tile.stamen.com/toner/${z}/${x}/${y}@2x.png"), {
-            sphericalMercator: true,
-            tileOptions: {
-                crossOriginKeyword: null
-            },
-            numZoomLevels: 20
+
+    new LayerType('ign-scexstandard', 'SCAN Express Standard IGN', function() {
+        return new OpenLayers.Layer.WMTS({
+            name:"SCAN Express Standard IGN",
+            url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
+            layer:"GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.STANDARD",
+            matrixSet:"PM",
+            format:"image/jpeg",
+            style:"normal"
         });
     }),
-
-    new LayerType('osmfr', 'OSM FR', function () {
-        return new OpenLayers.Layer.OSM('OSM FR', switch_url('http://{switch:a,b,c}.tile.openstreetmap.fr/osmfr/${z}/${x}/${y}.png'), layer_options);
-    }),
-
-    new LayerType('osmfr-hot', 'OSM FR hot', function () {
-        return new OpenLayers.Layer.OSM('OSM FR hot', switch_url('http://{switch:a,b,c}.tile.openstreetmap.fr/hot/${z}/${x}/${y}.png'), layer_options);
-    }),
-
-    new LayerType('mapbox-transportation', 'MapBox Transport (OSM)', function () {
-        return new OpenLayers.Layer.OSM("MapBox transportation", switch_url("http://{switch:a,b,c,d}.tiles.mapbox.com/v4/peterqliu.9d05be4d/${z}/${x}/${y}@2x.png?access_token=pk.eyJ1IjoiZHVuY2FuZ3JhaGFtIiwiYSI6IlJJcWdFczQifQ.9HUpTV1es8IjaGAf_s64VQ"), {
-            tileOptions: {
-                crossOriginKeyword: null
-            },
-            numZoomLevels: 20
-        })
-    }),
-
-    new LayerType('google-map', 'Google Map', function () {
-        return new OpenLayers.Layer.Google('Google (Map)', {
-            type: google.maps.MapTypeId.ROADMAP
+    new LayerType('ign-scexclassic', 'SCAN Express Classique IGN', function() {
+        return new OpenLayers.Layer.WMTS({
+            name:"SCAN Express Classique IGN",
+            url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
+            layer:"GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.CLASSIQUE",
+            matrixSet:"PM",
+            format:"image/jpeg",
+            style:"normal"
         });
     }),
-    
-    
-    new LayerType('mapquest-eu', 'Mapquest EU (OSM)', function () {
-        return new OpenLayers.Layer.OSM('Mapquest (OSM)', switch_url("http://otile{switch:1,2,3,4}.mqcdn.com/tiles/1.0.0/osm/${z}/${x}/${y}.png"), layer_options);
+    new LayerType('ign-scexgris', 'SCAN Express Gris IGN', function() {
+        return new OpenLayers.Layer.WMTS({
+            name:"SCAN Express Gris IGN",
+            url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
+            layer:"GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.NIVEAUXGRIS",
+            matrixSet:"PM",
+            format:"image/png",
+            style:"normal"
+        });
     }),
-
-    new LayerType('bing-map', 'Bing Map', function () {
+    new LayerType('ign-scexroutier', 'SCAN Express Routier IGN', function() {
+        return new OpenLayers.Layer.WMTS({
+            name:"SCAN Express Routier IGN",
+            url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
+            layer:"GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.ROUTIER",
+            matrixSet:"PM",
+            format:"image/jpeg",
+            style:"normal"
+        });
+    }),
+    new LayerType('ign-franceraster', 'FranceRaster® V4', function() {
+        return new OpenLayers.Layer.WMTS({
+            name:"FranceRaster® V4",
+            url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
+            layer:"GEOGRAPHICALGRIDSYSTEMS.FRANCERASTER",
+            matrixSet:"PM",
+            format:"image/jpeg",
+            style:"normal"
+        });
+    }),
+    new LayerType('ign-plan', 'Plan IGN', function() {
+        return new OpenLayers.Layer.WMTS({
+            name:"Plan IGN",
+            url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
+            layer:"GEOGRAPHICALGRIDSYSTEMS.PLANIGN",
+            matrixSet:"PM",
+            format:"image/jpeg",
+            style:"normal"
+        });
+    }),
+    new LayerType('ign-cartes', 'Cartes IGN', function() {
+        return new OpenLayers.Layer.WMTS({
+            name:"Cartes IGN",
+            url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
+            layer:"GEOGRAPHICALGRIDSYSTEMS.MAPS",
+            matrixSet:"PM",
+            format:"image/jpeg",
+            style:"normal"
+        });
+    }),
+    new LayerType('bing-map', 'Bing Maps', function () {
         return new OpenLayers.Layer.Bing(
 
         // XXX: bing.com returns a wrong zoom level in JSON API call
@@ -995,88 +1028,66 @@ function initLayerTypes() {
             //,  metadataParams: { mapVersion: "v1" }
         }));
     }),
-
-    //TODO: Ajouter l'ensemble des layers IGN
-    
-    new LayerType('ign-cartes', 'Cartes IGN', function() {
-    	return new OpenLayers.Layer.WMTS({
-    	name:"Cartes IGN",
-    	url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
-    	layer:"GEOGRAPHICALGRIDSYSTEMS.MAPS",
-    	matrixSet:"PM",
-    	format:"image/jpeg",
-    	style:"normal",
-    	});
+    new LayerType('google-map', 'Google Maps', function () {
+        return new OpenLayers.Layer.Google('Google (Map)', {
+            type: google.maps.MapTypeId.ROADMAP
+        });
     }),
-    new LayerType('ign-plan', 'Plan IGN', function() {
-    	return new OpenLayers.Layer.WMTS({
-    	name:"Plan IGN",
-    	url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
-    	layer:"GEOGRAPHICALGRIDSYSTEMS.PLANIGN",
-    	matrixSet:"PM",
-    	format:"image/jpeg",
-    	style:"normal",
-    	});
+    new LayerType('osmfr', 'OSM FR', function () {
+        return new OpenLayers.Layer.OSM('OSM FR', switch_url('http://{switch:a,b,c}.tile.openstreetmap.fr/osmfr/${z}/${x}/${y}.png'), layer_options);
     }),
-    new LayerType('ign-scexclassic', 'ScanExpress Classique IGN', function() {
-    	return new OpenLayers.Layer.WMTS({
-    	name:"Pyramide ScanExpress Classique IGN",
-    	url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
-    	layer:"GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.CLASSIQUE",
-    	matrixSet:"PM",
-    	format:"image/jpeg",
-    	style:"normal",
-    	});
+    new LayerType('osmfr-hot', 'OSM FR HOT', function () {
+        return new OpenLayers.Layer.OSM('OSM FR HOT', switch_url('http://{switch:a,b,c}.tile.openstreetmap.fr/hot/${z}/${x}/${y}.png'), layer_options);
     }),
-    new LayerType('ign-scexstandard', 'ScanExpress Standard IGN', function() {
-    	return new OpenLayers.Layer.WMTS({
-    	name:"Pyramide ScanExpress Standard IGN",
-    	url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
-    	layer:"GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.STANDARD",
-    	matrixSet:"PM",
-    	format:"image/jpeg",
-    	style:"normal",
-    	});
+    new LayerType('toner-retina', 'OSM Toner Retina', function () {
+        return new OpenLayers.Layer.OSM('OSM Toner Retina', switch_url("http://{switch:a,b}.tile.stamen.com/toner/${z}/${x}/${y}@2x.png"), {
+            sphericalMercator: true,
+            tileOptions: {
+                crossOriginKeyword: null
+            },
+            numZoomLevels: 20
+        });
     }),
-    new LayerType('ign-franceraster', 'Carte France Raster ® V4', function() {
-    	return new OpenLayers.Layer.WMTS({
-    	name:"Carte France Raster ® V4",
-    	url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
-    	layer:"GEOGRAPHICALGRIDSYSTEMS.FRANCERASTER",
-    	matrixSet:"PM",
-    	format:"image/jpeg",
-    	style:"normal",
-    	});
+    new LayerType('mapbox-transportation', 'OSM MapBox Transport', function () {
+        return new OpenLayers.Layer.OSM("OSM MapBox Transport", switch_url("http://{switch:a,b,c,d}.tiles.mapbox.com/v4/peterqliu.9d05be4d/${z}/${x}/${y}@2x.png?access_token=pk.eyJ1IjoiZHVuY2FuZ3JhaGFtIiwiYSI6IlJJcWdFczQifQ.9HUpTV1es8IjaGAf_s64VQ"), {
+            tileOptions: {
+                crossOriginKeyword: null
+            },
+            numZoomLevels: 20
+        })
     }),
-   new LayerType('esri-wtm', 'World Topo Map ESRI/IGN', function() {
-    	return new OpenLayers.Layer.WMTS({
-    	name:"World Topo Map ESRI/IGN",
-    	url:"http://wxs.ign.fr/$CLE/proxy",
-    	layer:"World_Topo_Map",
-    	matrixSet:"PM",
-    	format:"image/jpg",
-    	style:"default",
-    	});
+    new LayerType('mapquest-eu', 'OSM Mapquest EU', function () {
+        return new OpenLayers.Layer.OSM('OSM Mapquest EU', switch_url("http://otile{switch:1,2,3,4}.mqcdn.com/tiles/1.0.0/osm/${z}/${x}/${y}.png"), layer_options);
     }),
-      new LayerType('ign-scexgris', 'ScanExpress Gris IGN', function() {
-    	return new OpenLayers.Layer.WMTS({
-    	name:"ScanExpress Gris IGN",
-    	url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
-    	layer:"GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.NIVEAUXGRIS",
-    	matrixSet:"PM",
-    	format:"image/png",
-    	style:"normal",
-    	});
+    new LayerType('esri-wtm', 'World Topo Map ESRI/IGN', function() {
+        return new OpenLayers.Layer.WMTS({
+            name:"World Topo Map ESRI/IGN",
+            url:"http://wxs.ign.fr/$CLE/proxy",
+            layer:"World_Topo_Map",
+            matrixSet:"PM",
+            format:"image/jpg",
+            style:"default",
+        });
     }),
-       new LayerType('ign-scexroutier', 'ScanExpress Routier IGN', function() {
-    	return new OpenLayers.Layer.WMTS({
-    	name:"ScanExpress Routier IGN",
-    	url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
-    	layer:"GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXPRESS.ROUTIER",
-    	matrixSet:"PM",
-    	format:"image/jpeg",
-    	style:"normal",
-    	});
+    new LayerType('scan50', 'SCAN 50® (Carte au 1/50 000 de 1950)', function() {
+        return new OpenLayers.Layer.WMTS({
+            name:"SCAN 50® (Carte au 1/50 000 de 1950)",
+            url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
+            layer:"GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN50.1950",
+            matrixSet:"PM",
+            format:"image/jpeg",
+            style:"default",
+        });
+    }),
+    new LayerType('etatmajor40', 'SCAN EM® 40K (Carte de l\'état-major 1820-1866)', function() {
+        return new OpenLayers.Layer.WMTS({
+            name:"SCAN EM® 40K (Carte de l\'état-major 1820-1866)",
+            url:"http://wxs.ign.fr/$CLE/geoportail/wmts",
+            layer:"GEOGRAPHICALGRIDSYSTEMS.ETATMAJOR40",
+            matrixSet:"PM",
+            format:"image/jpeg",
+            style:"default",
+        });
     }),
 
     // EOF padding
@@ -1129,7 +1140,7 @@ function initLayerTypes() {
 
     ];
 
-    reorderMaps("layertypes", mc.sort);
+    // reorderMaps("layertypes", mc.sort);
     reorderMaps("over_layertypes", mc.sort_overlay);
     getOrderOfPrefMaps();
 }
@@ -1215,7 +1226,7 @@ function set_popup(obj) {
     var message_p = "";
     if (mc.search.marker_permalink) {
         // message_p += '<p/><div><a href="' + $("#permalink").attr("href") + '&marker=' + message + '">permalink</a></div>';
-        message_p += '<p/><div><a class="share_link" onclick="click_share_link(' + obj.lon + ',' + obj.lat + ')">share</a></div>';
+        message_p += '<p/><div><a class="share_link" onclick="click_share_link(' + obj.lon + ',' + obj.lat + ')">Partager</a></div>';
     }
 
     // A popup with some information about our location
@@ -1247,7 +1258,7 @@ function click_share_link(lon, lat) {
         type: 'click'
     });
 
-    $("#tools-sharetrigger").trigger({
+    $("#share_context").trigger({
         type: 'click'
     });
 }
@@ -1592,7 +1603,7 @@ function updatePermalink() {
     }
 
     permalink[0].href = url;
-    $('#customZoomLevel').html('niveau_de_zoom=' + state.maps[0].getZoom());
+    $('#customZoomLevel').html('niveau de zoom : ' + state.maps[0].getZoom());
 
     return url;
 }
@@ -1630,7 +1641,7 @@ function getPermalink(NumberOfMaps) {
 }
 
 function updateNumberOfMapsLink(NumberOfMapsMax, NumberOfMaps, NumberOfMapsLinks) {
-    var message = "nombre de fenêtres: <span id='nom_links'>";
+    var message = "nombre de fenêtres : <span id='nom_links'>";
     var pl_class = "";
 
     for (var i = 1; i <= NumberOfMapsMax; i++) {
@@ -2815,6 +2826,7 @@ function mc_search(query) {
 }
 
 function init_search() {
+    console.log("dddddd");
     // $('#address-submit').click(function () {
     // IE8, IE9 submit on enter, see http://support.microsoft.com/kb/298498/
     $('div#search-form form').on('submit', function () {
@@ -2986,7 +2998,7 @@ function mc_search_nominatim(query, offset, paging) {
                 }
                 debug("Address: " + index + ". " + val.display_name + " lat: " + val.lat + " lon: " + val.lon);
 
-                var link = "<p><a title='lat,lon: " + val.lat + "," + val.lon + " [" + val["class"] + "]'";
+                var link = "<p><a title='lat,lon : " + val.lat + "," + val.lon + " [" + val["class"] + "]'";
                 link += "href='#' onclick='chooseAddrBTLR(" + val.boundingbox + "," + val.lon + "," + val.lat + ", \"" + escapeHtmlEntities(val.display_name) + "\");return false;'>";
                 link += (data.length == 1 ? "" : counter + ") "); // only one hit, no numbers
                 link += val.display_name + "</a></p>";
@@ -3259,6 +3271,12 @@ $(document).ready(function () {
             debug("onLoad inputwin");
         }
     }).draggable();
+    $("span#fixed_info_icon").click(function () {
+        $("div#hidden_link").show();
+    });
+    $("span#fixed_toggle_icon").click(function () {
+        $("div#hidden_link").hide();
+    });
 });
 
 /* ================================================== */
